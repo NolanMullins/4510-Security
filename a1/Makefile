@@ -2,8 +2,8 @@ all:
 	chmod +x aes-encrypt.py
 	chmod +x aes-decrypt.py
 
-enc: 
-	./aes-encrypt.py FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF ecb data/plain data/enc
+encrypt: 
+	./aes-encrypt.py key=FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF mode=ecb in=data/plain out=data/enc
 
-dec: 
-	./aes-decrypt.py
+decrypt: 
+	./aes-decrypt.py key=FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF mode=ecb in=data/enc out=data/dec
