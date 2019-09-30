@@ -21,11 +21,18 @@ if __name__ == "__main__":
 
 	if args['mode'] == "ecb":
 		cipher = AES.new(args['key'].encode("utf-8"), AES.MODE_ECB)
-	else:
+		dec = cipher.decrypt(contents)
+		plainText = unpad(dec, AES.block_size).decode("utf-8")
+	elif args['mode'] == 'cbc':
 		cipher = AES.new(args['key'].encode("utf-8"), AES.MODE_CBC, b'\xb4\xb7\xf1\x9aT\xa4D\xcf1\xcaV\x0fo\xfa\x98\xc6')
-
-	dec = cipher.decrypt(contents)
-	plainText = unpad(dec, AES.block_size).decode("utf-8")
+		dec = cipher.decrypt(contents)
+		plainText = unpad(dec, AES.block_size).decode("utf-8")
+	else:
+		cipher = AES.new(args['key'].encode("utf-8"), AES.MODE_GCM, nonce=b'\xb4\xb7\xf1\x9aT\xa4D\xcf1\xcaV\x0fo\xfa\x98\xc6')
+		cipher.verify(args['header'].encode("utf-8"))
+		cipher.update(args['header'])
+		plainText = cipher.decrypt(contents).decode("utf-8")
+	print(plainText)
 	with open(args['out'], "w") as outData:
 		outData.write(plainText)
 

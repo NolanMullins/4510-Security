@@ -22,9 +22,17 @@ if __name__ == "__main__":
 
 	if args['mode'] == "ecb":
 		cipher = AES.new(args['key'].encode("utf-8"), AES.MODE_ECB)
-	else:
+		enc = cipher.encrypt(padded)
+	elif args['mode'] == 'cbc':
 		cipher = AES.new(args['key'].encode("utf-8"), AES.MODE_CBC, b'\xb4\xb7\xf1\x9aT\xa4D\xcf1\xcaV\x0fo\xfa\x98\xc6')
-	enc = cipher.encrypt(padded)
+		enc = cipher.encrypt(padded)
+	else:
+		cipher = AES.new(args['key'].encode("utf-8"), AES.MODE_GCM, nonce=b'\xb4\xb7\xf1\x9aT\xa4D\xcf1\xcaV\x0fo\xfa\x98\xc6')
+		cipher.update(args['header'].encode("utf-8"))
+		enc = cipher.encrypt(contents.encode("utf-8")) 
+
+	print(enc)
+
 	with open(args['out'], "wb") as outData:
 		outData.write(enc)
 
