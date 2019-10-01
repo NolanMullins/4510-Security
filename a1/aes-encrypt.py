@@ -32,7 +32,6 @@ if __name__ == "__main__":
 		enc = cipher.encrypt(contents.encode("utf-8")) 
 
 	print(enc)
-
 	with open(args['out'], "wb") as outData:
 		outData.write(enc)
 
