@@ -1,0 +1,29 @@
+/****************************************
+ * Nolan Mullins
+ * 0939720
+ * 2019-10-03
+ * 4510 - a1
+ ****************************************/
+
+**********************************
+Setup
+********************************** 
+You will need python3 installed along with pycryptodome to run the assignment
+To install pycryptodome run:
+
+pip3 install pycryptodome
+
+Give files execution privileges run:
+
+make
+
+**********************************
+Running
+********************************** 
+
+Encryption
+./aes-encrypt key=<128-bit key>, mode=ecb|cbc|gcm, in=<input file>, and out=<output file>, header=<header (only needed for gcm)>
+
+Decryption 
+./aes-decrypt key=<128-bit key>, mode=ecb|cbc|gcm, in=<input file>, and out=<output file, header=<header (only needed for gcm)> 
+
