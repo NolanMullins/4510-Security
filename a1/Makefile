@@ -20,8 +20,8 @@ run-encrypt-ecb:
 run-decrypt-ebc:	
 	./aes-decrypt.py key=FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF mode=ecb in=cipher_out_file out=plain_out_file 
 
-run-encrypt-ecb:
+run-encrypt-gcm:
 	./aes-encrypt.py key=FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF mode=ecb in=in_file out=cipher_out_file
 
-run-decrypt-ebc:	
+run-decrypt-gcm:	
 	./aes-decrypt.py key=FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF mode=ecb in=cipher_out_file out=plain_out_file 
