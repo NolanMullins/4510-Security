@@ -1,5 +1,5 @@
 CC=gcc
-CFLAGS= -z execstack -fno-stack-protector
+CFLAGS= -z execstack -fno-stack-protector -g
 
 all: file_exists is_log_file buf_exploit env_exploit
 
