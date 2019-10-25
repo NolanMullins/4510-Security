@@ -13,4 +13,4 @@ is_log_file: is_log_file.c
 	$(CC) -o $* $*.c $(CFLAGS)
 
 clean:
-	rm file_exists is_log_file *.log buf_exploit
+	rm file_exists is_log_file *.log buf_exploit env_exploit
