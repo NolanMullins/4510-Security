@@ -3,6 +3,7 @@ CFLAGS= -z execstack -fno-stack-protector -g
 
 all: file_exists is_log_file buf_exploit env_exploit
 
+#sudo chmod u+s file_exsits
 file_exists: file_exists.c
 	$(CC) -o file_exists file_exists.c $(CFLAGS)
 
