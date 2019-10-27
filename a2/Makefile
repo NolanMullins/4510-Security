@@ -13,5 +13,9 @@ is_log_file: is_log_file.c
 %: %.c
 	$(CC) -o $* $*.c $(CFLAGS)
 
+perm:
+	sudo chmod u+s file_exists \
+	&& sudo chmod u+s is_log_file
+
 clean:
 	rm file_exists is_log_file *.log buf_exploit env_exploit

@@ -1,0 +1,16 @@
+#################
+# Nolan Mullins # 
+#    4510 A2    #
+#################
+
+Build)
+make all will build file_exists is_log_file buf_exploit env_exploit
+
+make buf_exploit
+make env_exploit
+
+Running)
+./buf_exploit
+./is_log_file malicious_log_file
+
+./env_exploit
